@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>컬렉션 | 수원시의원 디지털 아카이브</title>
+<meta name="description" content="수원시의원 관련 사진, 신문, 포스터, 선거자료, 통계표, 인물 컬렉션">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/static/pretendard.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div class="util"><div class="container">
+  <span>수원시의원 디지털 아카이브 · 『수원시의원으로 살다』 Ⅱ</span>
+  <nav><a href="about.html#guide">이용 안내</a><a href="about.html#sources">자료 출처</a><a href="about.html#contact">자료 기증</a></nav>
+</div></div>
+
+<header class="site-header">
+  <div class="container">
+    <a class="logo" href="index.html" aria-label="수원시의원 디지털 아카이브 홈">
+      <svg viewBox="0 0 40 40" aria-hidden="true"><rect x="13" y="5" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"/><rect class="lm-front" x="5" y="13" width="22" height="22"/><rect class="lm-cut" x="8.5" y="17" width="15" height="2"/><rect class="lm-cut" x="10" y="21.5" width="2.4" height="9.5"/><rect class="lm-cut" x="14.8" y="21.5" width="2.4" height="9.5"/><rect class="lm-cut" x="19.6" y="21.5" width="2.4" height="9.5"/></svg>
+      <span><b>SUWON COUNCIL</b><small>수원시의원 디지털 아카이브</small></span>
+    </a>
+    <nav class="gnb" aria-label="주 메뉴">
+      <a href="collection.html" aria-current="page">컬렉션<span>COLLECTION</span></a>
+      <a href="exhibition.html">디지털 전시<span>EXHIBITION</span></a>
+      <a href="about.html">소개<span>ABOUT</span></a>
+    </nav>
+    <form class="h-search" action="collection.html" role="search">
+      <label class="sr-only" for="hq">아카이브 검색</label>
+      <input id="hq" name="q" type="search" placeholder="인물, 자료, 연도 검색">
+      <button type="submit" aria-label="검색"><svg class="ico" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg></button>
+    </form>
+    <button class="menu-btn" aria-label="메뉴 열기" aria-expanded="false"><i></i></button>
+  </div>
+</header>
+
+<main>
+  <section class="page-head"><div class="container">
+    <div class="kicker">Archive · Collection</div>
+    <h1 class="display">Collection<span class="ko">컬렉션</span></h1>
+    <p class="lead">사진·신문·포스터·선거자료·통계표, 그리고 기록 속 인물들. 시대와 유형으로 좁혀 보거나 이름·장소·단체명으로 검색하세요.</p>
+  </div></section>
+
+  <div class="toolbar"><div class="container">
+    <div class="tb-row">
+      <form class="c-search" id="cform" role="search">
+        <svg class="ico" viewBox="0 0 20 20"><circle cx="8.5" cy="8.5" r="6"/><path d="M13 13l5 5"/></svg>
+        <label class="sr-only" for="cq">컬렉션 검색</label>
+        <input id="cq" type="search" placeholder="예) 이수연, 새마을, 1952, 수원박물관" autocomplete="off">
+        <button type="button" class="clear" aria-label="검색어 지우기">×</button>
+      </form>
+      <label class="sr-only" for="sort">정렬</label>
+      <select class="select" id="sort">
+        <option value="year">연도 오름차순</option>
+        <option value="year-desc">연도 내림차순</option>
+        <option value="title">가나다순</option>
+      </select>
+      <div class="view-count" aria-live="polite"><b id="count">0</b>RESULTS</div>
+    </div>
+    <div class="filter-group" id="f-era"><span class="lbl">ERA</span></div>
+    <div class="filter-group" id="f-type"><span class="lbl">TYPE</span></div>
+  </div></div>
+
+  <section class="results"><div class="container">
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" hidden><b>NO RESULTS</b>검색 결과가 없습니다. 다른 검색어나 필터를 사용해 보세요.</div>
+  </div></section>
+</main>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="modal-panel">
+    <button class="m-close" aria-label="닫기">×</button>
+    <div class="m-media" id="m-media"></div>
+    <div class="m-body">
+      <div class="kicker" id="m-kicker"></div>
+      <h2 id="m-title"></h2>
+      <p class="desc" id="m-desc"></p>
+      <dl class="meta" id="m-meta"></dl>
+      <div class="m-tags" id="m-tags"></div>
+    </div>
+    <div class="m-nav"><button id="m-prev" aria-label="이전 자료">←</button><button id="m-next" aria-label="다음 자료">→</button></div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="container top">
+    <div>
+      <a class="logo" href="index.html"><svg viewBox="0 0 40 40" aria-hidden="true"><rect x="13" y="5" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2"/><rect class="lm-front" x="5" y="13" width="22" height="22"/><rect class="lm-cut" x="8.5" y="17" width="15" height="2"/><rect class="lm-cut" x="10" y="21.5" width="2.4" height="9.5"/><rect class="lm-cut" x="14.8" y="21.5" width="2.4" height="9.5"/><rect class="lm-cut" x="19.6" y="21.5" width="2.4" height="9.5"/></svg><span><b>SUWON COUNCIL</b><small>수원시의원 디지털 아카이브</small></span></a>
+      <p class="about">『수원시의원으로 살다』 Ⅱ장 「수원시의원들의 사회적 배경」(황병주·유상희)을 바탕으로 구성한 비영리 교육용 디지털 아카이브입니다.</p>
+    </div>
+    <div><h4>ARCHIVE</h4><ul><li><a href="collection.html">컬렉션</a></li><li><a href="collection.html?type=인물">인물</a></li><li><a href="exhibition.html">디지털 전시</a></li></ul></div>
+    <div><h4>ABOUT</h4><ul><li><a href="about.html">아카이브 소개</a></li><li><a href="about.html#guide">이용 안내</a></li><li><a href="about.html#sources">자료 출처</a></li></ul></div>
+    <div><h4>SOURCES</h4><ul><li>수원박물관</li><li>수원시의회</li><li>중앙선거관리위원회</li></ul></div>
+  </div>
+  <div class="bottom"><div class="container"><span>© <span data-this-year></span> SUWON COUNCIL ARCHIVE</span><span>이미지 저작권은 각 소장처에 있습니다</span></div></div>
+</footer>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/collection.js"></script>
+</body>
+</html>
